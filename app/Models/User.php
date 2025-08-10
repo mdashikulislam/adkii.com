@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Random\RandomException;
 
 class User extends Authenticatable
 {
@@ -21,6 +22,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'status',
+        'role',
+        'otp',
+        'otp_expires_at',
+        'token'
     ];
 
     /**
@@ -45,4 +51,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * @throws RandomException
+     */
+//    public function sendPasswordResetNotification($token)
+//    {
+//
+//        $otp = generateOtpCode();
+//        $this->otp = $otp;
+//        $this->otp_expires_at = now()->addMinutes(15);
+//        $this->save();
+//
+//        $this->notify(new \App\Notifications\SendPasswordResetOtp($otp));
+//    }
+
 }
