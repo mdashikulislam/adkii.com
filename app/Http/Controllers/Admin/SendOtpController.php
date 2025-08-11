@@ -20,15 +20,11 @@ class SendOtpController extends Controller
         $request->validate([
             'email' => 'required|email'
         ]);
-
         $user = User::where('email', $request->email)->first();
-
         if (!$user) {
             toast('User not found!', 'warning');
         }
-
         $token = Str::random(64);
-
         DB::table('password_reset_tokens')->updateOrInsert(
             ['email' => $user->email],
             [

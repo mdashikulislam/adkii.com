@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Contracts\LoginViewResponse;
-use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController as FortifyLogin;
 
-
-class AdminLoginController extends FortifyLogin
+class LoginController extends Controller
 {
     public function login(Request $request): LoginViewResponse
     {

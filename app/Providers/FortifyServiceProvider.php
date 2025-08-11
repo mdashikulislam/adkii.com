@@ -36,6 +36,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->loadAuthView();
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
@@ -54,7 +55,6 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::authenticateUsing(static function (Request $request) {
-
             $request->validate([
                 'email' => 'required|string|email',
                 'password' => 'required|string',
@@ -88,10 +88,12 @@ class FortifyServiceProvider extends ServiceProvider
             return view('admin.auth.verify-email');
         });
 
+
+    }
+    private function loadAuthView()
+    {
         Fortify::loginView(static function () {
-           return redirect()->route('admin.auth.login');
+            return view('admin.auth.login');
         });
-
-
     }
 }

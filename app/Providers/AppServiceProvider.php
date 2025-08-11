@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Providers;
-
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
@@ -25,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
             if (Auth::check()) {
                 $user = Auth::user();
                 if ($user->role === ADMIN_ROLE) {
-                    return route('adb-login'); // Admin login form
+                    return route('adb-login');
                 } else {
                     return route('show-login-form');
                 }
