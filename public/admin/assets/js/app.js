@@ -51,7 +51,7 @@
 
 
 
-  // Applying perfect-scrollbar 
+  // Applying perfect-scrollbar
   if (document.querySelector('.sidebar .sidebar-body')) {
     const sidebarBodyScroll = new PerfectScrollbar('.sidebar-body');
   }
@@ -60,8 +60,8 @@
 
   // Sidebar toggle to sidebar-folded
   const sidebarTogglers = document.querySelectorAll('.sidebar-toggler');
-  // there are two sidebar togglers. 
-  // 1: on sidebar - for min-width 992px (laptop, desktop) 
+  // there are two sidebar togglers.
+  // 1: on sidebar - for min-width 992px (laptop, desktop)
   // 2: on navbar - for max-width 991px (mobile phone, tablet)
   if (sidebarTogglers.length) {
 
@@ -91,7 +91,7 @@
 
   //  sidebar-folded on min-width:992px and max-width: 1199px (in lg only not in xl)
   // Warning!!! this results apex chart width issue
-  // 
+  //
   // const desktopMedium = window.matchMedia('(min-width:992px) and (max-width: 1199px)');
   // function iconSidebar() {
   //   if (desktopMedium.matches) {
@@ -107,7 +107,7 @@
 
   // Add "active" class to nav-link based on url dynamically
   function addActiveClass(element) {
-    
+
     // Get parents of the 'el' with a selector (class, id, etc..)
     function getParents(el, selector) {
       const parents = [];
@@ -136,7 +136,7 @@
           element.closest('.collapse').classList.add('show');       // Adding class 'show' to the closest '.collapse' to expand submenu
           element.classList.add('active');                          // Adding class 'active' to the submenu '.nav-link'
         }
-        if (getParents(element, '.submenu-item')) {                 // Checking if it's a submenu-item 'element' [in horizontal menu bottom-navbar - demo2] 
+        if (getParents(element, '.submenu-item')) {                 // Checking if it's a submenu-item 'element' [in horizontal menu bottom-navbar - demo2]
           element.classList.add('active');                          // Adding class 'active' to the submenu-item '.nav-link'
           if (element.closest('.nav-item.active .submenu')) {       // Checking element has a submenu
             element.closest('.nav-item.active').classList.add('show-submenu');  // adding class 'show-submenu' to the parent .nav-item (only for mobile/tablet)
@@ -214,7 +214,7 @@
       }, true);
     }
   }
-  
+
 
 
 
@@ -234,7 +234,7 @@
       });
     }
   }
-    
+
 
 
 
@@ -254,7 +254,7 @@
 
 
   // Prevent body scrolling while sidebar scroll
-  // 
+  //
   // if (sidebarBody) {
   //   sidebarBody.addEventListener('mouseover', function () {
   //     body.classList.add('overflow-hidden');
@@ -294,34 +294,34 @@
 
 
 
-  // Buy Now & Doc buttons [only for server] 
-  const buyNowWrapper  = document.createElement('div'),
-        docLink        = document.createElement('a'),
-        docLinkIcon    = document.createElement('i'),
-        buyNowLink     = document.createElement('a'),
-        buyNowLinkIcon = document.createElement('i'),
-        docLinkHref    = 'https://www.nobleui.com/html/documentation/docs.html',
-        buyNowLinkHref = 'https://1.envato.market/nobleui_admin';
-
-  buyNowWrapper.classList.add('buy-now-wrapper');
-  
-  docLink.classList.add('btn', 'btn-primary');
-  docLink.setAttribute('href', docLinkHref);
-  docLink.setAttribute('target', '_blank');
-  docLinkIcon.classList.add('icon-lg');
-  docLinkIcon.setAttribute('data-feather', 'file-text');
-
-  buyNowLink.classList.add('btn', 'btn-danger', 'ms-2');
-  buyNowLink.innerText = 'Buy Now';
-  buyNowLink.setAttribute('href', buyNowLinkHref);
-  buyNowLink.setAttribute('target', '_blank');
-  buyNowLinkIcon.classList.add('icon-lg', 'me-1');
-  buyNowLinkIcon.setAttribute('data-feather', 'shopping-cart');
-
-  docLink.append(docLinkIcon);
-  buyNowLink.prepend(buyNowLinkIcon);
-  buyNowWrapper.append(docLink, buyNowLink);
-  body.append(buyNowWrapper);
+  // Buy Now & Doc buttons [only for server]
+  // const buyNowWrapper  = document.createElement('div'),
+  //       docLink        = document.createElement('a'),
+  //       docLinkIcon    = document.createElement('i'),
+  //       buyNowLink     = document.createElement('a'),
+  //       buyNowLinkIcon = document.createElement('i'),
+  //       docLinkHref    = 'https://www.nobleui.com/html/documentation/docs.html',
+  //       buyNowLinkHref = 'https://1.envato.market/nobleui_admin';
+  //
+  // buyNowWrapper.classList.add('buy-now-wrapper');
+  //
+  // docLink.classList.add('btn', 'btn-primary');
+  // docLink.setAttribute('href', docLinkHref);
+  // docLink.setAttribute('target', '_blank');
+  // docLinkIcon.classList.add('icon-lg');
+  // docLinkIcon.setAttribute('data-feather', 'file-text');
+  //
+  // buyNowLink.classList.add('btn', 'btn-danger', 'ms-2');
+  // buyNowLink.innerText = 'Buy Now';
+  // buyNowLink.setAttribute('href', buyNowLinkHref);
+  // buyNowLink.setAttribute('target', '_blank');
+  // buyNowLinkIcon.classList.add('icon-lg', 'me-1');
+  // buyNowLinkIcon.setAttribute('data-feather', 'shopping-cart');
+  //
+  // docLink.append(docLinkIcon);
+  // buyNowLink.prepend(buyNowLinkIcon);
+  // buyNowWrapper.append(docLink, buyNowLink);
+  // body.append(buyNowWrapper);
 
 
 

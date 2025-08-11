@@ -40,36 +40,50 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::redirectUserForTwoFactorAuthenticationUsing(RedirectIfTwoFactorAuthenticatable::class);
 
-        RateLimiter::for('login', function (Request $request) {
+        RateLimiter::for('login', static function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
 
             return Limit::perMinute(5)->by($throttleKey);
         });
 
-        RateLimiter::for('two-factor', function (Request $request) {
+        RateLimiter::for('two-factor', static function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
-        Fortify::authenticateUsing(function (Request $request) {
+        Fortify::authenticateUsing(static function (Request $request) {
 
             $request->validate([
                 'email' => 'required|string|email',
                 'password' => 'required|string',
             ]);
 
-            $user = User::where('email', $request->email)->first();
+            $user = User::where('email', $request->email)
+                ->where('role',ADMIN_ROLE)
+                ->first();
+
+            if (!$user){
+                toast('Unauthorized access!','warning');
+            }
 
             if ($user && Hash::check($request->password, $user->password)) {
                 return $user;
             }
         });
 
-        Fortify::requestPasswordResetLinkView(function () {
+        Fortify::requestPasswordResetLinkView(static function () {
             return view('admin.auth.forget-password');
         });
 
-        Fortify::resetPasswordView(function ($request) {
+        Fortify::resetPasswordView(static function ($request) {
             return view('admin.auth.reset-otp', ['request' => $request]);
+        });
+
+        Fortify::verifyEmailView(static function () {
+            return view('admin.auth.verify-email');
+        });
+
+        Fortify::loginView(static function () {
+           return redirect()->route('admin.auth.login');
         });
 
     }
