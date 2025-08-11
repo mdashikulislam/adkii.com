@@ -7,6 +7,7 @@ use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\ResetUserPasswordWithOtp;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use Laravel\Fortify\Contracts\LoginResponse;
 use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
@@ -17,6 +18,8 @@ use Illuminate\Support\Str;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Fortify;
 use function PHPUnit\Framework\containsIdentical;
+use App\Http\Responses\LoginResponse as CustomLoginResponse;
+use Laravel\Fortify\Contracts\LogoutResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -70,6 +73,9 @@ class FortifyServiceProvider extends ServiceProvider
             }
         });
 
+        $this->app->singleton(LoginResponse::class, CustomLoginResponse::class);
+
+
         Fortify::requestPasswordResetLinkView(static function () {
             return view('admin.auth.forget-password');
         });
@@ -85,6 +91,7 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::loginView(static function () {
            return redirect()->route('admin.auth.login');
         });
+
 
     }
 }

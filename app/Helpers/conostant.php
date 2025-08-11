@@ -7,3 +7,8 @@ const PENDING_STATUS = 0;
 const ACTIVE_STATUS = 1;
 const INACTIVE_STATUS = 2;
 const DELETE_STATUS = 3;
+
+const ALL_USER_ROLE = [
+    'Admin' => ADMIN_ROLE,
+    'User' => USER_ROLE,
+];

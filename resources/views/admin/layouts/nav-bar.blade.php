@@ -30,8 +30,8 @@
                             <img class="w-80px h-80px rounded-circle" src="{{asset('admin/assets/images/faces/face1.jpg')}}" alt="">
                         </div>
                         <div class="text-center">
-                            <p class="fs-16px fw-bolder">Amiah Burton</p>
-                            <p class="fs-12px text-secondary">amiahburton@gmail.com</p>
+                            <p class="fs-16px fw-bolder">{{auth()->user()->name}}</p>
+                            <p class="fs-12px text-secondary">{{auth()->user()->email}}</p>
                         </div>
                     </div>
                     <ul class="list-unstyled p-1">
@@ -42,23 +42,16 @@
                             </a>
                         </li>
                         <li class="dropdown-item py-2">
-                            <a href="javascript:;" class="text-body ms-0">
-                                <i class="me-2 icon-md" data-feather="edit"></i>
-                                <span>Edit Profile</span>
-                            </a>
-                        </li>
-                        <li class="dropdown-item py-2">
-                            <a href="javascript:;" class="text-body ms-0">
-                                <i class="me-2 icon-md" data-feather="repeat"></i>
-                                <span>Switch User</span>
-                            </a>
-                        </li>
-                        <li class="dropdown-item py-2">
-                            <a href="javascript:;" class="text-body ms-0">
+                            <a href="javascript:;" class="text-body ms-0"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="me-2 icon-md" data-feather="log-out"></i>
                                 <span>Log Out</span>
                             </a>
                         </li>
+
+                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </ul>
                 </div>
             </li>
