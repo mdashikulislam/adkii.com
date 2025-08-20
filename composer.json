@@ -7,9 +7,9 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "laravel/fortify": "^1.27",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
+        "laravel/ui": "^4.6",
         "realrashid/sweet-alert": "^7.3",
         "spatie/laravel-permission": "^6.21"
     },
@@ -28,7 +28,7 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         },
-        "files": ["app/Helpers/conostant.php","app/Helpers/function.php"]
+        "files": ["app/Helpers/conostant.php","app/Helpers/function.php","app/Helpers/AppConstants.php"]
     },
     "autoload-dev": {
         "psr-4": {

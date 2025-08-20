@@ -19,21 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Authenticate::redirectUsing(function ($request) {
-            if (Auth::check()) {
-                $user = Auth::user();
-                if ($user->role === ADMIN_ROLE) {
-                    return route('adb-login');
-                } else {
-                    return route('show-login-form');
-                }
-            }
 
-            if ($request->is('admin/*') || $request->is('adb-login')) {
-                return route('adb-login'); // Admin login
-            }
-
-            return route('show-login-form'); // Normal user login
-        });
     }
 }

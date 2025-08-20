@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Helpers\AppConstants;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -20,8 +21,7 @@ class AdminSeeder extends Seeder
             'email'=>'admin200@yopmail.com',
             'password'=>Hash::make('12345678'),
             'email_verified_at'=>formatDate(Carbon::now(),'Y-M-d H:i:s'),
-            'role'=>ADMIN_ROLE,
-            'status'=>ACTIVE_STATUS,
+            'status'=>AppConstants::ACTIVE_STATUS,
         ];
 
         User::firstOrCreate(
