@@ -11,7 +11,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth','verified'])->group(f
     //CategoryController
     Route::resource('categories', CategoryController::class);
 
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    Route::post('/logout', [CategoryController::class, 'destroy'])->name('logout');
 
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard');

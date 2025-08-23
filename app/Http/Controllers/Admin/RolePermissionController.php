@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -12,6 +12,7 @@ class RolePermissionController extends Controller
     public function index()
     {
         $roles = Role::withCount('users')->get();
+        ds($roles);
         return view('admin.role-permission.index')->with([
             'roles' => $roles,
             'title' => 'Role List'
