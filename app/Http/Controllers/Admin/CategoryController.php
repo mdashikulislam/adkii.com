@@ -10,7 +10,6 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return Category::withDepth()->find(12);
         return view('admin.categories.index');
     }
 

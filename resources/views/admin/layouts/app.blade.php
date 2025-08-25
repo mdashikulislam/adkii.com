@@ -8,14 +8,15 @@
     <meta name="author" content="{{config('app.name')}}">
     <meta name="keywords" content="{{config('app.name')}}">
     <title>{{config('app.name')}} | @yield('title')</title>
+    <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.png')}}" />
     <script src="{{asset('admin/assets/js/color-modes.js')}}"></script>
     <link rel="stylesheet" href="{{asset('admin/assets/vendors/core/core.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendors/flatpickr/flatpickr.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/fonts/feather-font/css/iconfont.css')}}">
-    <link rel="stylesheet" href="{{asset('admin/assets/css/demo1/style.css')}}">
-    <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.png')}}" />
     <link rel="stylesheet" href="{{asset('css/fontawesome-free-7.0.0-web/css/all.min.css')}}">
-    @stack('admin.style')
+    @stack('style-library')
+    <link rel="stylesheet" href="{{asset('admin/assets/css/demo1/style.css')}}">
+    @stack('style')
 </head>
 <body class="sidebar-dark">
 @include('sweetalert::alert')
@@ -37,24 +38,17 @@
     </div>
 </div>
 
-
 <script src="{{asset('admin/assets/vendors/core/core.js')}}"></script>
-
 <script src="{{asset('admin/assets/vendors/flatpickr/flatpickr.min.js')}}"></script>
 <script src="{{asset('admin/assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
-
 <script src="{{asset('admin/assets/vendors/feather-icons/feather.min.js')}}"></script>
 <script src="{{asset('admin/assets/js/app.js')}}"></script>
-
 <script src="{{asset('admin/assets/js/dashboard.js')}}"></script>
-
 <script src="{{asset('jquery/jquery-3.7.1.min.js')}}"></script>
 <script src="{{asset('jq-validation/jquery.validate.js')}}"></script>
-
 <script src="{{asset('jq-validation/additional-methods.js')}}"></script>
-
-
-@stack('admin.script')
+@stack('script-library')
+@stack('script')
 
 </body>
 

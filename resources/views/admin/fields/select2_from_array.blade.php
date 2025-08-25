@@ -39,3 +39,19 @@
         <div class="form-text">{!! $field['hint'] !!}</div>
     @endif
 </div>
+@push('style-library')
+    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/select2/select2.min.css') }}">
+@endpush
+@push('script-library')
+    <script src="{{ asset('admin/assets/vendors/select2/select2.min.js') }}"></script>
+@endpush
+@push('script')
+    <script>
+        $('.select2_from_array').each(function (i, obj) {
+            if (!$(obj).hasClass("select2-hidden-accessible"))
+            {
+                $(obj).select2();
+            }
+        })
+    </script>
+@endpush
