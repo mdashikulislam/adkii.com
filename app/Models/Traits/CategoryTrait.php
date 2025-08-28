@@ -61,6 +61,7 @@ trait CategoryTrait
                 'wrapper'    => [
                     'class' => 'col-md-6',
                 ],
+                'translatable' => true,
             ],
             [
                 'name'       => 'slug',
@@ -73,6 +74,41 @@ trait CategoryTrait
                 'wrapper'    => [
                     'class' => 'col-md-6',
                 ],
+            ],
+            [
+                'name'  => 'seo_tags',
+                'type'  => 'custom_html',
+                'value' => '<br><h4 style="margin-bottom: 0;">SEO Tags</h4>',
+            ],
+            [
+                'name'  => 'seo_start',
+                'type'  => 'custom_html',
+                'value' => '<hr style="border: 1px dashed #EFEFEF" class="mt-0 mb-1">',
+            ],
+            [
+                'name'  => 'dynamic_variables_hint',
+                'type'  => 'custom_html',
+                'value' => trans('admin.dynamic_variables_hint'),
+            ],
+            [
+                'name'       => 'seo_title',
+                'label'      => trans('admin.Title'),
+                'type'       => 'text',
+                'attributes' => [
+                    'placeholder' => trans('admin.Title'),
+                ],
+                'hint'       => trans('admin.seo_title_hint'),
+                'translatable' => true,
+            ],
+            [
+                'name'       => 'seo_description',
+                'label'      => trans('admin.Description'),
+                'type'       => 'textarea',
+                'attributes' => [
+                    'placeholder' => trans('admin.Description'),
+                ],
+                'hint'       => trans('admin.seo_description_hint'),
+                'translatable' => true,
             ]
         ];
     }

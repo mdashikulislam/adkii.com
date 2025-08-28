@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset('css/fontawesome-free-7.0.0-web/css/all.min.css')}}">
     @stack('style-library')
     <link rel="stylesheet" href="{{asset('admin/assets/css/demo1/style.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/assets/css/custom.css')}}">
     @stack('style')
 </head>
 <body class="sidebar-dark">

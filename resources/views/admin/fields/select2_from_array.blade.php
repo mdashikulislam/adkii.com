@@ -17,6 +17,7 @@
             <span class="text-danger">*</span>
         @endif
     </label>
+    @include('admin.fields.inc.translatable_icon')
     <select
         name="{{ $name }}" style="width: 100%" id="{{$id}}"
         @include('admin.fields.inc.field_attributes', ['default_class' => 'form-select select2_from_array'])
