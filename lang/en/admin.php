@@ -1671,7 +1671,7 @@ Let the provider place ads for you. Add one piece of code to your site and allow
     'comma_separated_hint' => 'Enter values separated with comma.',
     'dynamic_variables_hint' => '<div class="card bg-light-inverse rounded mb-0">
 <div class="card-body">
-<p>NOTE: You can use dynamic variables such as <code>{app.name}</code> and <code>{country.name}</code> - e.g. {app.name} will be replaced with the name of your website and {country.name} by the selected country. If a variable cannot find its replacement, it will be hidden.</p>
+<p>NOTE: You can use dynamic variables such as <code>{app.name}</code> and <code>{country.name}</code> - e.g. <code>{app.name}</code> will be replaced with the name of your website and {country.name} by the selected country. If a variable cannot find its replacement, it will be hidden.</p>
 </div>
 </div>',
     'dynamic_variables_stats_hint' => '<div class="card bg-light-inverse rounded mb-0">

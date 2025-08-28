@@ -49,6 +49,28 @@
 <script src="{{asset('jq-validation/jquery.validate.js')}}"></script>
 <script src="{{asset('jq-validation/additional-methods.js')}}"></script>
 @stack('script-library')
+<script>
+    if (!window.onDocumentReady) {
+        function onDocumentReady(callback, isFullyLoaded = true) {
+            switch (document.readyState) {
+                case "loading":
+                    document.addEventListener("DOMContentLoaded", callback);
+                    break;
+                case "interactive": {
+                    if (!isFullyLoaded) {
+                        setTimeout(callback, 500);
+                    }
+                    break;
+                }
+                case "complete":
+                    callback();
+                    break;
+                default:
+                    document.addEventListener("DOMContentLoaded", callback);
+            }
+        }
+    }
+</script>
 @stack('script')
 
 </body>

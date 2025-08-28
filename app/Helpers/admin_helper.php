@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Arr;
+
 function arrayTranslationsToJson(?array $entry, bool $unescapedUnicode = true): ?array
 {
     if (empty($entry)) {
@@ -15,4 +18,18 @@ function arrayTranslationsToJson(?array $entry, bool $unescapedUnicode = true): 
     }
 
     return $neyEntry;
+}
+function checkIfFieldIsFirstOfItsType(array $field, array $fieldsArray):bool
+{
+    if ($field['name'] == getFirstOfItsTypeInArray($field['type'], $fieldsArray)['name']) {
+        return true;
+    }
+
+    return false;
+}
+function getFirstOfItsTypeInArray($type, $array)
+{
+    return Arr::first($array, function ($item) use ($type) {
+        return $item['type'] == $type;
+    });
 }

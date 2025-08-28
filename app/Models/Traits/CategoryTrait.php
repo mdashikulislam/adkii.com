@@ -76,6 +76,14 @@ trait CategoryTrait
                 ],
             ],
             [
+                'name'   => 'image_path',
+                'label'  => trans('admin.Picture'),
+                'type'   => 'image',
+                'upload' => true,
+                'disk'   => 'public',
+                'hint'   => trans('admin.category_picture_icon_hint'),
+            ],
+            [
                 'name'  => 'seo_tags',
                 'type'  => 'custom_html',
                 'value' => '<br><h4 style="margin-bottom: 0;">SEO Tags</h4>',
@@ -109,6 +117,27 @@ trait CategoryTrait
                 ],
                 'hint'       => trans('admin.seo_description_hint'),
                 'translatable' => true,
+            ],
+            [
+                'name'       => 'seo_keywords',
+                'label'      => trans('admin.Keywords'),
+                'type'       => 'textarea',
+                'attributes' => [
+                    'placeholder' => trans('admin.Keywords'),
+                ],
+                'hint'       => trans('admin.comma_separated_hint') . ' ' . trans('admin.seo_keywords_hint'),
+                'translatable' => true,
+            ],
+            [
+                'name'  => 'seo_end',
+                'type'  => 'custom_html',
+                'value' => '<hr style="border: 1px dashed #EFEFEF;">',
+            ],
+            [
+                'name'    => 'active',
+                'label'   => trans('admin.Active'),
+                'type'    => 'checkbox_switch',
+                'default' => '1',
             ]
         ];
     }

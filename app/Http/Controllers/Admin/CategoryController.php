@@ -21,6 +21,7 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
+        return$request->all();
         $electronics = Category::create($request->except('_ token'));
         return 'done';
     }
